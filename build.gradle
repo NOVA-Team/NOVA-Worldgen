@@ -15,15 +15,16 @@ dependencies {
 nova {
 	wrappers {
 		"17" {
-			runtime project(":mc17")
 			wrapper "nova.core:NOVA-Core-Wrapper-MC1.7:$nova_version"
+			runtime project(":minecraft:1.7")
 		}
 		"18" {
-			runtime project(":mc18")
 			wrapper "nova.core:NOVA-Core-Wrapper-MC1.8:$nova_version"
+			runtime project(":minecraft:1.8")
 		}
 		"1_11" {
 			wrapper "nova.core:NOVA-Core-Wrapper-MC1.11:$nova_version"
+			runtime project(":minecraft:1.11")
 		}
 	}
 }
