@@ -1,3 +1,4 @@
-rootProject.name = "NOVA-WORLDGEN"
+rootProject.name = "NOVA-Worldgen"
 
-include "mc17", "mc18"
+include "minecraft:1.8"
+include "minecraft:1.7"
