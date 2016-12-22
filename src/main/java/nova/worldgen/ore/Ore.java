@@ -1,7 +1,9 @@
 package nova.worldgen.ore;
 
 import nova.core.block.BlockFactory;
-import nova.core.util.Identifiable;
+import nova.core.util.id.Identifiable;
+import nova.core.util.id.Identifier;
+import nova.core.util.id.StringIdentifier;
 import nova.worldgen.util.EnumSelector;
 
 /**
@@ -31,7 +33,7 @@ public final class Ore implements Identifiable {
 	}
 
 	@Override
-	public String getID() {
-		return oreGenName;
+	public Identifier getID() {
+		return new StringIdentifier(oreGenName);
 	}
 }
