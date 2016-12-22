@@ -2,3 +2,5 @@
 
 !/build.gradle
 !/.gitignore
+
+!/1.8
