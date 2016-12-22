@@ -24,7 +24,7 @@ publishing {
 		main(MavenPublication) {
 			from components.java
 
-			artifactId "NovaWorldgen-Wrapper-MC1.7.10"
+			artifactId "NOVA-Worldgen-Wrapper-MC1.7.10"
 
 			artifact sourcesJar
 			artifact javadocJar
@@ -56,8 +56,8 @@ minecraft {
 
 dependencies {
 	compile rootProject
-	compile group: "nova.core", name: "NovaCore", version: property("nova.version"), changing: true
-	compile "nova.wrapper.mc1710:NovaWrapper-MC1.7.10:0.1-SNAPSHOT:deobf"
+	compile group: "nova.core", name: "NOVA-Core", version: property("nova_version"), changing: true
+	compile group: "nova.core", name: "NOVA-Core-Wrapper-MC1.7", version: property("nova_version"), classifier: "deobf", changing: true
 }
 
 processResources {
