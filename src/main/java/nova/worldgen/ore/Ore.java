@@ -1,3 +1,23 @@
+/*
+ * Copyright (c) 2015 NOVA, All rights reserved.
+ * This library is free software, licensed under GNU Lesser General Public License version 3
+ *
+ * This file is part of NOVA.
+ *
+ * NOVA is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * NOVA is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with NOVA.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
 package nova.worldgen.ore;
 
 import nova.core.block.BlockFactory;
@@ -11,7 +31,7 @@ import nova.worldgen.util.EnumSelector;
  * in world structure as ore.
  */
 public final class Ore implements Identifiable {
-	public final String oreGenName;
+	public final String id;
 	public final BlockFactory block;
 	public final double rarity;
 	public final double clusterSize;
@@ -24,8 +44,8 @@ public final class Ore implements Identifiable {
 	 * @param clusterSize Ore cluster size multiplier, base value is 1, bigger value means bigger ore cluster
 	 * @param oreLayers World layers at which the ore can be found
 	 */
-	public Ore(String oreGenName, BlockFactory block, double rarity, double clusterSize, EnumSelector<OreHeight> oreLayers) {
-		this.oreGenName = oreGenName;
+	public Ore(String id, BlockFactory block, double rarity, double clusterSize, EnumSelector<OreHeight> oreLayers) {
+		this.id = Identifiable.addPrefix(id, true);
 		this.block = block;
 		this.rarity = rarity;
 		this.clusterSize = clusterSize;
@@ -34,6 +54,6 @@ public final class Ore implements Identifiable {
 
 	@Override
 	public Identifier getID() {
-		return new StringIdentifier(oreGenName);
+		return new StringIdentifier(id);
 	}
 }
