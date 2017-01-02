@@ -46,36 +46,39 @@ public class EnumSelector<T extends Enum<T>> {
 			throw new IllegalStateException("No edits are allowed after EnumSelector has been locked.");
 	}
 
-	public void allowAll() {
+	public EnumSelector<T> allowAll() {
 		checkLocked();
 		if (!defaultBlock)
 			defaultAllow = true;
 		else
 			throw new IllegalStateException("You can't allow all enum values when you are already blocking them.");
+		return this;
 	}
 
-	public void blockAll() {
+	public EnumSelector<T> blockAll() {
 		checkLocked();
 		if (!defaultAllow)
 			defaultBlock = true;
 		else
 			throw new IllegalStateException("You can't block all enum values when you are already allowing them.");
+		return this;
 	}
 
-	public void apart(T value) {
+	public EnumSelector<T> apart(T value) {
 		checkLocked();
 		exceptions.add(value);
+		return this;
 	}
 
-	public void lock() {
+	public EnumSelector<T> lock() {
 		if (defaultAllow || defaultBlock)
 			locked = true;
 		else
 			throw new IllegalStateException("Cannot lock EnumSelector without specifying default behaviour.");
+		return this;
 	}
 
 	public boolean locked() {
-
 		return locked;
 	}
 

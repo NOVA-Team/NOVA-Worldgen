@@ -23,6 +23,7 @@ package nova.worldgen;
 import nova.core.util.registry.Manager;
 import nova.core.util.registry.Registry;
 import nova.internal.core.Game;
+import nova.worldgen.event.WorldgenEvent;
 import nova.worldgen.ore.Ore;
 import nova.worldgen.ore.OreGenerationRegistry;
 
@@ -40,8 +41,10 @@ public class WorldgenManager extends Manager<WorldgenManager> {
 	}
 
 	public Ore register(Ore ore) {
-		registry.register(ore);
-		return ore;
+		WorldgenEvent.RegisterOre event = new WorldgenEvent.RegisterOre(ore);
+		Game.events().publish(event);
+		registry.register(event.ore);
+		return event.ore;
 	}
 
 	public Optional<Ore> get(String ID) {

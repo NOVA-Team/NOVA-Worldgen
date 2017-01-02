@@ -17,7 +17,8 @@ buildscript {
 
 apply plugin: "maven-publish"
 apply plugin: "com.jfrog.artifactory"
-apply from: "https://raw.githubusercontent.com/NOVA-Team/NOVA-Gradle/master/shared-scripts/java.gradle"
+//apply from: "https://raw.githubusercontent.com/NOVA-Team/NOVA-Gradle/master/shared-scripts/java.gradle"
+apply from: "../../../../.Libraries/java.gradle"
 
 publishing {
 	publications {
@@ -56,8 +57,8 @@ minecraft {
 
 dependencies {
 	compile rootProject
-	compile group: "nova.core", name: "NovaCore", version: property("nova.version"), changing: true
-	compile "nova.wrapper.mc1710:NovaWrapper-MC1.7.10:0.1-SNAPSHOT:deobf"
+	compile group: "nova.core", name: "NOVA-Core", version: property("nova.version"), changing: true
+	compile "nova.core:NOVA-Core-Wrapper-MC1.7:0.1.0-SNAPSHOT:deobf"
 }
 
 processResources {

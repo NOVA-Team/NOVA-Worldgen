@@ -34,14 +34,14 @@ apply plugin: 'net.minecraftforge.gradle.forge'
 
 minecraft {
 	version = property("minecraft.version") + "-" + property("forge.version")
-	mappings = 'snapshot_20161111'
+	mappings = 'snapshot_20161220'
 	runDir = "run"
 }
 
 dependencies {
 	compile rootProject
-	compile group: "nova.core", name: "NovaCore", version: property("nova_version"), changing: true
-	compile "nova.wrapper.mc1_11:NovaWrapper-MC1.11:0.1-SNAPSHOT:deobf"
+	compile group: "nova.core", name: "NOVA-Core", version: property("nova_version"), changing: true
+	compile "nova.core:NOVA-Core-Wrapper-MC1.11:0.1.0-SNAPSHOT:deobf"
 }
 
 processResources {
