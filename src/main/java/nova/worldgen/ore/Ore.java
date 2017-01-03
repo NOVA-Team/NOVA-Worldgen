@@ -21,10 +21,10 @@
 package nova.worldgen.ore;
 
 import nova.core.block.BlockFactory;
+import nova.core.util.EnumSelector;
 import nova.core.util.id.Identifiable;
 import nova.core.util.id.Identifier;
 import nova.core.util.id.StringIdentifier;
-import nova.worldgen.util.EnumSelector;
 
 /**
  * This class describes resource that will be placed by world generator

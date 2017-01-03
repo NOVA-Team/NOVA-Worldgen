@@ -55,10 +55,10 @@ public class FWWorldGenerator implements IWorldGenerator {
 
 	@Override
 	public void generate(Random random, int chunkX, int chunkZ, World world, IChunkProvider chunkGenerator, IChunkProvider chunkProvider) {
-		double worldScale = world.provider.getAverageGroundLevel() + 1;
+		double worldScale = world.provider.getAverageGroundLevel();
 		Map<Integer, OreHeight> oreHeightMap = new HashMap<>();
 		this.worldgenManager.registry.stream().forEachOrdered(ore -> {
-			double baseCount = 12 * ore.rarity * worldScale / 64;
+			double baseCount = 12 / ore.rarity * worldScale / 64;
 			int count = (int) Math.round(random.nextGaussian() * Math.sqrt(baseCount) + baseCount);
 			for(int i = 0; i < count; i++) {
 				oreHeightMap.clear();
