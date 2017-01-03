@@ -31,7 +31,9 @@ import nova.worldgen.event.WorldgenEvent;
 import nova.worldgen.ore.Ore;
 import nova.worldgen.ore.OreHeight;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Random;
 
@@ -72,24 +74,18 @@ public class FWWorldGenerator implements IWorldGenerator {
 				//  DEEPERER = 20 (15-25)
 				//  REALLYDEEP = 10 (5-15)
 
-				if (ore.oreLayers.allows(OreHeight.SURFACE))
-					oreHeightMap.put(j++, OreHeight.SURFACE);
-				if (ore.oreLayers.allows(OreHeight.UNDERSURFACE))
-					oreHeightMap.put(j++, OreHeight.UNDERSURFACE);
-				if (ore.oreLayers.allows(OreHeight.DEEP))
-					oreHeightMap.put(j++, OreHeight.DEEP);
-				if (ore.oreLayers.allows(OreHeight.DEEPER))
-					oreHeightMap.put(j++, OreHeight.DEEPER);
-				if (ore.oreLayers.allows(OreHeight.DEEPERER))
-					oreHeightMap.put(j++, OreHeight.DEEPERER);
-				if (ore.oreLayers.allows(OreHeight.REALLYDEEP))
-					oreHeightMap.put(j++, OreHeight.REALLYDEEP);
+				Iterator<OreHeight> iterator = Arrays.stream(OreHeight.values()).filter(ore.oreLayers::allows).iterator();
+
+				for (OreHeight height = iterator.next(); iterator.hasNext();) {
+					oreHeightMap.put(j++, height);
+				}
+
 				if (j == 0) return;
 
 				j = random.nextInt(oreHeightMap.size());
 				OreHeight height = oreHeightMap.get(j);
 
-				double yAdd = (OreHeight.values().length - height.ordinal() * 10 * worldScale / 64) + (5 * worldScale / 64);
+				double yAdd = (OreHeight.values().length - height.ordinal() - 1) * (10 * worldScale / 64) + (5 * worldScale / 64);
 
 				int x = chunkX + random.nextInt(16);
 				int y = (int) Math.round(yAdd + (random.nextDouble() * 10 * worldScale / 64));
