@@ -23,15 +23,13 @@ package nova.worldgen.ore;
 import nova.core.block.BlockFactory;
 import nova.core.util.EnumSelector;
 import nova.core.util.id.Identifiable;
-import nova.core.util.id.Identifier;
-import nova.core.util.id.StringIdentifier;
+import nova.worldgen.Generable;
 
 /**
- * This class describes resource that will be placed by world generator
- * in world structure as ore.
+ * This class describes a resource that will be placed in the world
+ * as an ore by the world generator.
  */
-public final class Ore implements Identifiable {
-	public final String id;
+public final class Ore extends Generable implements Identifiable {
 	public final BlockFactory block;
 	public final double rarity;
 	public final double clusterSize;
@@ -45,15 +43,10 @@ public final class Ore implements Identifiable {
 	 * @param oreLayers World layers at which the ore can be found
 	 */
 	public Ore(String id, BlockFactory block, double rarity, double clusterSize, EnumSelector<OreHeight> oreLayers) {
-		this.id = Identifiable.addPrefix(id, false);
+		super(id);
 		this.block = block;
 		this.rarity = rarity;
 		this.clusterSize = clusterSize;
 		this.oreLayers = oreLayers;
-	}
-
-	@Override
-	public Identifier getID() {
-		return new StringIdentifier(id);
 	}
 }
