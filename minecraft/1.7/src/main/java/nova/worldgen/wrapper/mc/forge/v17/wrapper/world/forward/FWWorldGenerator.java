@@ -74,9 +74,7 @@ public class FWWorldGenerator implements IWorldGenerator {
 				List<OreHeight> oreHeightList = Arrays.stream(OreHeight.values()).filter(ore.oreLayers::allows).collect(Collectors.toList());
 				if (oreHeightList.isEmpty()) return;
 
-				int j = random.nextInt(oreHeightList.size());
-				OreHeight height = oreHeightList.get(j);
-
+				OreHeight height = oreHeightList.get(random.nextInt(oreHeightList.size()));
 				double yAdd = (OreHeight.values().length - height.ordinal() - 1) * (10 * worldScale / 64) + (5 * worldScale / 64);
 
 				int x = chunkX + random.nextInt(16);
