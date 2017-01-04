@@ -18,7 +18,7 @@
  * along with NOVA.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package nova.worldgen.wrapper.mc.forge.v17;
+package nova.worldgen.wrapper.mc.forge.v17.launch;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import nova.core.loader.Loadable;
@@ -30,18 +30,18 @@ import nova.worldgen.wrapper.mc.forge.v17.wrapper.world.forward.FWWorldGenerator
  *
  * @author ExE Boss
  */
-@Mod(id = NovaMinecraftWorldgen.id, name = NovaMinecraftWorldgen.name, version = NovaMinecraftWorldgen.version, novaVersion = "0.0.1")
-public class NovaMinecraftWorldgen implements Loadable {
+@Mod(id = NovaWorldgenWrapper.id, name = NovaWorldgenWrapper.name, version = NovaWorldgenWrapper.version, novaVersion = "0.0.1")
+public class NovaWorldgenWrapper implements Loadable {
 
 	public static final String version = "0.0.1";
-	public static final String id = "novaworldgen";
+	public static final String id = "nova-worldgen-wrapper";
 	public static final String name = "NOVA Worldgen";
 
 	public final WorldgenManager worldgenManager;
 
 	public FWWorldGenerator worldGenerator;
 
-	public NovaMinecraftWorldgen(WorldgenManager worldgenManager) {
+	public NovaWorldgenWrapper(WorldgenManager worldgenManager) {
 		this.worldgenManager = worldgenManager;
 	}
 
