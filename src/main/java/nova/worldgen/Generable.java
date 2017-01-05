@@ -19,7 +19,7 @@ public abstract class Generable implements Identifiable {
 	public final String id;
 
 	public Generable(String id) {
-		this.id = Identifiable.addPrefix(id, false);
+		this.id = id;
 	}
 
 	@Override

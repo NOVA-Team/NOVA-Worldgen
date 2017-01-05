@@ -53,7 +53,7 @@ public class FWWorldGenerator implements IWorldGenerator {
 		this.worldgenManager = worldgenManager;
 		this.oreGen = new HashMap<>();
 		Game.events().on(WorldgenEvent.RegisterOre.class).bind(evt -> {
-			this.oreGen.put(evt.ore, new WorldGenMinable(((Block)Game.natives().toNative(evt.ore.block)).getDefaultState(),
+			this.oreGen.put(evt.ore, new WorldGenMinable(((Block)Game.natives().toNative(evt.ore.block.build())).getDefaultState(),
 					(int) Math.round(evt.ore.clusterSize * 5)));
 		});
 	}

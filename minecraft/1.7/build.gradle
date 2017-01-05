@@ -17,8 +17,7 @@ buildscript {
 
 apply plugin: "maven-publish"
 apply plugin: "com.jfrog.artifactory"
-//apply from: "https://raw.githubusercontent.com/NOVA-Team/NOVA-Gradle/master/shared-scripts/java.gradle"
-apply from: "../../../../.Libraries/java.gradle"
+apply from: "https://raw.githubusercontent.com/NOVA-Team/NOVA-Gradle/master/shared-scripts/java.gradle"
 
 publishing {
 	publications {

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 NOVA, All rights reserved.
+ * Copyright (c) 2017 NOVA, All rights reserved.
  * This library is free software, licensed under GNU Lesser General Public License version 3
  *
  * This file is part of NOVA.
@@ -18,10 +18,20 @@
  * along with NOVA.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package nova.worldgen.ore;
+package nova.internal.worldgen.depmodules;
 
-import nova.core.util.registry.Registry;
+import nova.worldgen.WorldgenManager;
+import se.jbee.inject.bind.BinderModule;
+import se.jbee.inject.util.Scoped;
 
-public class OreGenerationRegistry extends Registry<Ore> {
+/**
+ *
+ * @author ExE Boss
+ */
+public class WorldgenModule extends BinderModule {
 
+	@Override
+	protected void declare() {
+		per(Scoped.APPLICATION).bind(WorldgenManager.class).toConstructor();
+	}
 }

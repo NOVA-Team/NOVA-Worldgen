@@ -25,7 +25,6 @@ import nova.core.util.registry.Registry;
 import nova.internal.core.Game;
 import nova.worldgen.event.WorldgenEvent;
 import nova.worldgen.ore.Ore;
-import nova.worldgen.ore.OreGenerationRegistry;
 
 import java.util.Optional;
 
@@ -36,7 +35,7 @@ import java.util.Optional;
 public class WorldgenManager extends Manager<WorldgenManager> {
 	public final Registry<Ore> registry;
 
-	public WorldgenManager(OreGenerationRegistry registry) {
+	public WorldgenManager(Registry<Ore> registry) {
 		this.registry = registry;
 	}
 

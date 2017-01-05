@@ -23,6 +23,7 @@ package nova.worldgen.wrapper.mc.forge.v18.launch;
 import net.minecraftforge.fml.common.registry.GameRegistry;
 import nova.core.loader.Loadable;
 import nova.core.loader.Mod;
+import nova.internal.worldgen.depmodules.WorldgenModule;
 import nova.worldgen.WorldgenManager;
 import nova.worldgen.wrapper.mc.forge.v18.wrapper.world.forward.FWWorldGenerator;
 
@@ -30,7 +31,7 @@ import nova.worldgen.wrapper.mc.forge.v18.wrapper.world.forward.FWWorldGenerator
  *
  * @author ExE Boss
  */
-@Mod(id = NovaWorldgenWrapper.id, name = NovaWorldgenWrapper.name, version = NovaWorldgenWrapper.version, novaVersion = "0.0.1")
+@Mod(id = NovaWorldgenWrapper.id, name = NovaWorldgenWrapper.name, version = NovaWorldgenWrapper.version, modules = { WorldgenModule.class }, novaVersion = "0.0.1")
 public class NovaWorldgenWrapper implements Loadable {
 
 	public static final String version = "0.0.1";

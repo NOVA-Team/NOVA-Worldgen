@@ -20,11 +20,12 @@
 
 package nova.worldgen.world;
 
+import nova.core.util.registry.Registry;
 import nova.core.util.shape.Cuboid;
-import nova.worldgen.ore.OreGenerationRegistry;
+import nova.worldgen.ore.Ore;
 
 /**
- * This class profides information on world that world generator may need
+ * This class provides information on world that world generator may need
  */
 public abstract class WorldInfo {
 	/**
@@ -40,5 +41,5 @@ public abstract class WorldInfo {
 	/**
 	 * @return {@link OreGenerationRegistry} for the world
 	 */
-	public abstract OreGenerationRegistry getOreGenerationRegistry();
+	public abstract Registry<Ore> getOreGenerationRegistry();
 }
