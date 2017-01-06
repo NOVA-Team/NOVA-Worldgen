@@ -56,8 +56,8 @@ minecraft {
 
 dependencies {
 	compile rootProject
-	compile group: "nova.core", name: "NOVA-Core", version: property("nova.version"), changing: true
-	compile "nova.core:NOVA-Core-Wrapper-MC1.7:0.1.0-SNAPSHOT:deobf"
+	compile group: "nova.core", name: "NOVA-Core", version: property("nova_version"), changing: true
+	compile group: "nova.core", name: "NOVA-Core-Wrapper-MC1.7", version: property("nova_version"), classifier: "deobf", changing: true
 }
 
 processResources {
