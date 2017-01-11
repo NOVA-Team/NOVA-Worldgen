@@ -22,14 +22,13 @@ package nova.worldgen.ore;
 
 import nova.core.block.BlockFactory;
 import nova.core.util.EnumSelector;
-import nova.core.util.id.Identifiable;
 import nova.worldgen.Generable;
 
 /**
  * This class describes a resource that will be placed in the world
  * as an ore by the world generator.
  */
-public final class Ore extends Generable implements Identifiable {
+public final class Ore extends Generable {
 	public final BlockFactory block;
 	public final double rarity;
 	public final double clusterSize;

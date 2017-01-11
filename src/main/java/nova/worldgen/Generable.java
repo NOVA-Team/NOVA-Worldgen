@@ -5,9 +5,7 @@
  */
 package nova.worldgen;
 
-import nova.core.util.id.Identifiable;
-import nova.core.util.id.Identifier;
-import nova.core.util.id.StringIdentifier;
+import nova.core.util.Identifiable;
 
 /**
  * This class describes a structure that will be generated
@@ -23,7 +21,7 @@ public abstract class Generable implements Identifiable {
 	}
 
 	@Override
-	public final Identifier getID() {
-		return new StringIdentifier(id);
+	public final String getID() {
+		return id;
 	}
 }
