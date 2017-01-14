@@ -39,7 +39,7 @@ public abstract class WorldInfo {
 	public abstract Cuboid getWorldGenerationUnitDimmensions();
 
 	/**
-	 * @return {@link OreGenerationRegistry} for the world
+	 * @return {@link Registry}{@code <}{@link Ore}{@code >} for the world
 	 */
 	public abstract Registry<Ore> getOreGenerationRegistry();
 }

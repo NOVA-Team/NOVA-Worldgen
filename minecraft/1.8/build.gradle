@@ -24,7 +24,7 @@ publishing {
 		main(MavenPublication) {
 			from components.java
 
-			artifactId "NovaWorldgen-Wrapper-MC1.8"
+			artifactId "NOVA-Worldgen-Wrapper-MC1.8"
 
 			artifact sourcesJar
 			artifact javadocJar

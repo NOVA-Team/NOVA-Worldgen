@@ -44,11 +44,11 @@ public class NovaWorldgenWrapper implements Loadable {
 
 	public NovaWorldgenWrapper(WorldgenManager worldgenManager) {
 		this.worldgenManager = worldgenManager;
+		this.worldGenerator = new FWWorldGenerator(this.worldgenManager);
 	}
 
 	@Override
-	public void init() {
-		worldGenerator = new FWWorldGenerator(worldgenManager);
-		GameRegistry.registerWorldGenerator(worldGenerator, 0);
+	public void preInit() {
+		GameRegistry.registerWorldGenerator(this.worldGenerator, 0);
 	}
 }

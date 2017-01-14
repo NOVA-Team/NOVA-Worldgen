@@ -20,9 +20,9 @@
 
 package nova.worldgen;
 
+import nova.core.event.bus.GlobalEvents;
 import nova.core.util.registry.Manager;
 import nova.core.util.registry.Registry;
-import nova.internal.core.Game;
 import nova.worldgen.event.WorldgenEvent;
 import nova.worldgen.ore.Ore;
 
@@ -35,13 +35,16 @@ import java.util.Optional;
 public class WorldgenManager extends Manager<WorldgenManager> {
 	public final Registry<Ore> registry;
 
-	public WorldgenManager() {
+	private final GlobalEvents events;
+
+	public WorldgenManager(GlobalEvents events) {
 		this.registry = new Registry<>();
+		this.events = events;
 	}
 
 	public Ore register(Ore ore) {
 		WorldgenEvent.RegisterOre event = new WorldgenEvent.RegisterOre(ore);
-		Game.events().publish(event);
+		this.events.publish(event);
 		registry.register(event.ore);
 		return event.ore;
 	}
@@ -52,7 +55,7 @@ public class WorldgenManager extends Manager<WorldgenManager> {
 
 	@Override
 	public void init() {
-		Game.events().publish(new Init(this));
+		this.events.publish(new Init(this));
 	}
 
 	public class Init extends ManagerEvent<WorldgenManager> {
