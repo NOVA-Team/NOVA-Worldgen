@@ -35,8 +35,8 @@ import java.util.Optional;
 public class WorldgenManager extends Manager<WorldgenManager> {
 	public final Registry<Ore> registry;
 
-	public WorldgenManager(Registry<Ore> registry) {
-		this.registry = registry;
+	public WorldgenManager() {
+		this.registry = new Registry<>();
 	}
 
 	public Ore register(Ore ore) {

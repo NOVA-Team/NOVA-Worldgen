@@ -18,13 +18,14 @@
  * along with NOVA.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package nova.worldgen.wrapper.mc.forge.v17.wrapper.world.forward;
+package nova.worldgen.wrapper.mc.forge.v1_8.wrapper.world.forward;
 
-import cpw.mods.fml.common.IWorldGenerator;
 import net.minecraft.block.Block;
+import net.minecraft.util.BlockPos;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.feature.WorldGenMinable;
+import net.minecraftforge.fml.common.IWorldGenerator;
 import nova.internal.core.Game;
 import nova.worldgen.WorldgenManager;
 import nova.worldgen.event.WorldgenEvent;
@@ -51,7 +52,7 @@ public class FWWorldGenerator implements IWorldGenerator {
 		this.worldgenManager = worldgenManager;
 		this.oreGen = new HashMap<>();
 		Game.events().on(WorldgenEvent.RegisterOre.class).bind(evt -> {
-			this.oreGen.put(evt.ore, new WorldGenMinable(((Block)Game.natives().toNative(evt.ore.block.build())),
+			this.oreGen.put(evt.ore, new WorldGenMinable(((Block)Game.natives().toNative(evt.ore.block.build())).getDefaultState(),
 					(int) Math.round(evt.ore.clusterSize * 5)));
 		});
 	}
@@ -81,7 +82,7 @@ public class FWWorldGenerator implements IWorldGenerator {
 				int y = (int) Math.round(yAdd + (random.nextDouble() * 10 * worldScale / 64));
 				int z = chunkZ + random.nextInt(16);
 
-				oreGen.get(ore).generate(world, random, x, y, z);
+				oreGen.get(ore).generate(world, random, new BlockPos(x, y, z));
 			}
 		});
 	}

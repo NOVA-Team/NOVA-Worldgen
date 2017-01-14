@@ -18,14 +18,14 @@
  * along with NOVA.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package nova.worldgen.wrapper.mc.forge.v18.launch;
+package nova.worldgen.wrapper.mc.forge.v1_7_10.launch;
 
-import net.minecraftforge.fml.common.registry.GameRegistry;
+import cpw.mods.fml.common.registry.GameRegistry;
 import nova.core.loader.Loadable;
 import nova.core.loader.Mod;
 import nova.internal.worldgen.depmodules.WorldgenModule;
 import nova.worldgen.WorldgenManager;
-import nova.worldgen.wrapper.mc.forge.v18.wrapper.world.forward.FWWorldGenerator;
+import nova.worldgen.wrapper.mc.forge.v1_7_10.wrapper.world.forward.FWWorldGenerator;
 
 /**
  *
