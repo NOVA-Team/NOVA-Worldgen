@@ -6,8 +6,8 @@
 
 # Sources
 !/src
-!/mc17
-!/mc18
+!/guidelines
+!/minecraft
 
 # github
 !/.gitignore

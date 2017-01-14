@@ -18,41 +18,22 @@
  * along with NOVA.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package nova.worldgen.ore;
+package nova.worldgen.event;
 
-//TODO: Find better names for those
+import nova.core.event.bus.CancelableEvent;
+import nova.worldgen.ore.Ore;
 
 /**
- * This enum allows game wrapers to adjust where in its' world an ore should be spawned
+ *
+ * @author ExE Boss
  */
-public enum OreHeight {
-	/**
-	 * Ore can be found on surface level
-	 */
-	SURFACE,
+public abstract class WorldgenEvent extends CancelableEvent {
 
-	/**
-	 * Ore can be found just under surface
-	 */
-	UNDERSURFACE,
+	public static class RegisterOre extends CancelableEvent {
+		public Ore ore;
 
-	/**
-	 * Ore can be found deep under the surface
-	 */
-	DEEP,
-
-	/**
-	 * Ore can be found deep deep under the surface
-	 */
-	DEEPER,
-
-	/**
-	 * Ore can be found deep deep deep under the surface
-	 */
-	DEEPERER,
-
-	/**
-	 * Ore can be found deep deep deep deep under the surface
-	 */
-	REALLYDEEP,
+		public RegisterOre(Ore ore) {
+			this.ore = ore;
+		}
+	}
 }
