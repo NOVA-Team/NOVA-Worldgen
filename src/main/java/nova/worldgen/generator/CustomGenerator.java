@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 NOVA, All rights reserved.
+ * Copyright (c) 2017 NOVA, All rights reserved.
  * This library is free software, licensed under GNU Lesser General Public License version 3
  *
  * This file is part of NOVA.
@@ -17,42 +17,29 @@
  * You should have received a copy of the GNU General Public License
  * along with NOVA.  If not, see <http://www.gnu.org/licenses/>.
  */
+package nova.worldgen.generator;
 
-package nova.worldgen.ore;
+import nova.core.world.World;
+import nova.worldgen.WorldgenManager;
+import nova.worldgen.world.WorldInfo;
 
-//TODO: Find better names for those
+import java.util.Random;
 
 /**
- * This enum allows game wrapers to adjust where in its' world an ore should be spawned
+ * This is a black box generator.
+ * Unlike {@link nova.worldgen.ore.Ore},
+ * this one is implemented by the mod, not the game.
+ *
+ * @author ExE Boss
  */
-public enum OreHeight {
-	/**
-	 * Ore can be found on surface level
-	 */
-	SURFACE,
+public abstract class CustomGenerator extends Generator {
 
-	/**
-	 * Ore can be found just under surface
-	 */
-	UNDERSURFACE,
+	protected final WorldgenManager worldgenManager;
 
-	/**
-	 * Ore can be found deep under the surface
-	 */
-	DEEP,
+	public CustomGenerator(String id, WorldgenManager worldgenManager) {
+		super(id);
+		this.worldgenManager = worldgenManager;
+	}
 
-	/**
-	 * Ore can be found deep deep under the surface
-	 */
-	DEEPER,
-
-	/**
-	 * Ore can be found deep deep deep under the surface
-	 */
-	DEEPERER,
-
-	/**
-	 * Ore can be found deep deep deep deep under the surface
-	 */
-	REALLYDEEP,
+	public abstract void generate(Random random, int chunkX, int chunkZ, double worldScale, World worlda, WorldInfo worldInfo);
 }
