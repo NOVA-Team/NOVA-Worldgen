@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015 NOVA, All rights reserved.
+ * Copyright (c) 2017 NOVA, All rights reserved.
  * This library is free software, licensed under GNU Lesser General Public License version 3
  *
  * This file is part of NOVA.
@@ -18,41 +18,21 @@
  * along with NOVA.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package nova.worldgen.ore;
+package nova.internal.worldgen.depmodules;
 
-//TODO: Find better names for those
+import nova.worldgen.WorldgenManager;
+import nova.worldgen.world.WorldInfo;
+import se.jbee.inject.bind.BinderModule;
+import se.jbee.inject.util.Scoped;
 
 /**
- * This enum allows game wrapers to adjust where in its' world an ore should be spawned
+ *
+ * @author ExE Boss
  */
-public enum OreHeight {
-	/**
-	 * Ore can be found on surface level
-	 */
-	SURFACE,
+public class WorldgenModule extends BinderModule {
 
-	/**
-	 * Ore can be found just under surface
-	 */
-	UNDERSURFACE,
-
-	/**
-	 * Ore can be found deep under the surface
-	 */
-	DEEP,
-
-	/**
-	 * Ore can be found deep deep under the surface
-	 */
-	DEEPER,
-
-	/**
-	 * Ore can be found deep deep deep under the surface
-	 */
-	DEEPERER,
-
-	/**
-	 * Ore can be found deep deep deep deep under the surface
-	 */
-	REALLYDEEP,
+	@Override
+	protected void declare() {
+		per(Scoped.APPLICATION).bind(WorldgenManager.class).toConstructor();
+	}
 }
